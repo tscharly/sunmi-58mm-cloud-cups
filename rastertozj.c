@@ -42,6 +42,9 @@ static const struct command cashDrawerEject [2] =
 static const struct command rasterModeStartCommand =
 {4,(char[4]){0x1d,0x76,0x30,0}};
 
+static const struct command pageCutCommand =
+{4, (char[4]){29,'V','A',20}};
+
 #ifdef DEBUGP
 FILE* lfd = 0;
 #endif
@@ -162,6 +165,7 @@ void ShutDown()
 		outputCommand(cashDrawerEject[0]);
 	if ( settings.cashDrawer2==2 )
 		outputCommand(cashDrawerEject[1]);
+	outputCommand(pageCutCommand);
 	outputCommand(printerInitializeCommand);
 }
 
