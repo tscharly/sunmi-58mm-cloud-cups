@@ -261,7 +261,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "PAGE: %d %d\n", ++page, header.NumCopies);
 		pageSetup();
 
-		int foo = ( header.cupsWidth > 0x180 ) ? 0x180 : header.cupsWidth;
+		int foo = ( header.cupsWidth > 0x240 ) ? 0x240 : header.cupsWidth;
 		foo = (foo+7) & 0xFFFFFFF8;
 		int width_size = foo >> 3;
 
